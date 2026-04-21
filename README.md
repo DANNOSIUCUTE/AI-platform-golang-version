@@ -1,4 +1,4 @@
-# Chatbot Platform - Golang Enterprise Edition
+# Chatbot Platform - Golang Edition
 
 Đây là dự án nền tảng Chatbot ứng dụng mô hình của Anthropic (Claude AI), được thiết kế với chuẩn kiến trúc **Clean Architecture** (MVC Golang API) và môi trường đóng gói **Docker**.
 
