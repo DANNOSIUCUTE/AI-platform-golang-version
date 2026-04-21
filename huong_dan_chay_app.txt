@@ -1,3 +1,0 @@
-mở terminal lên
-cd chatbot-platform
-dùng lệnh npm start hoặc npm run dev

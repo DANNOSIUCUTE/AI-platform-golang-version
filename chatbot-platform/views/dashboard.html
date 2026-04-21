@@ -379,11 +379,12 @@
                 loadingDiv.innerHTML = '<div class="message-content">Đang trả lời...</div>';
                 document.getElementById("chat-body").appendChild(loadingDiv);
 
-                // Gửi tin nhắn đến server
+                // Gửi tin nhắn đến server kèm theo chuỗi bảo mật JWT
                 const response = await fetch('/api/chatbots/1/chat', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('auth_token')
                     },
                     body: JSON.stringify({ message })
                 });
@@ -460,7 +461,12 @@ document.getElementById("chat-input").addEventListener("keypress", function (eve
 
     async function fetchAndDisplayHistory() {
         try {
-            const response = await fetch('/api/chatbots/1/history');
+            const response = await fetch('/api/chatbots/1/history', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('auth_token')
+                }
+            });
             if (!response.ok) {
                 throw new Error('Failed to fetch history');
             }
